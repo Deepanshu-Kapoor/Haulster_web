@@ -21,10 +21,10 @@ const highlights = [
 const WINNIPEG = [-97.1384, 49.8951]
 
 const ROUTES = [
-  { from: WINNIPEG, to: [-87.6298, 41.8781] },   // Chicago
-  { from: WINNIPEG, to: [-95.3698, 29.7604] },   // Houston
-  { from: WINNIPEG, to: [-118.2437, 34.0522] },  // Los Angeles
-  { from: WINNIPEG, to: [-79.3832, 43.6532] },   // Toronto
+  { from: WINNIPEG, to: [-87.6298, 41.8781] },
+  { from: WINNIPEG, to: [-95.3698, 29.7604] },
+  { from: WINNIPEG, to: [-118.2437, 34.0522] },
+  { from: WINNIPEG, to: [-79.3832, 43.6532] },
 ]
 
 const EXCLUDED = new Set([
@@ -71,7 +71,7 @@ const listItemVariants = {
 
 function CoverageMap() {
   const [hovered, setHovered] = useState(null)
-  const [geoUrl, setGeoUrl] = useState(null)
+  const [geoUrl, setGeoUrl] = useState("")
 
   const USA_COLOR = "#1d4ed8"
   const CAN_COLOR = "#D80621"
@@ -81,7 +81,7 @@ function CoverageMap() {
   const isInView = useInView(mapRef, { once: true, margin: "-100px" })
 
   useEffect(() => {
-    setGeoUrl("/maps/na-admin1.topo.json")
+    setGeoUrl(`${window.location.origin}/maps/na-admin1.topo.json`)
   }, [])
 
   return (
@@ -287,7 +287,10 @@ export function FleetCoverage() {
               className="mt-12 space-y-4 border-t border-slate-200 pt-8"
             >
               {highlights.map((text, i) => (
-                <div key={i} className="group flex cursor-default items-center gap-4">
+                <div
+                  key={i}
+                  className="group flex cursor-default items-center gap-4"
+                >
                   <span className="font-black text-red-600 transition-transform group-hover:scale-125">
                     0{i + 1}
                   </span>
