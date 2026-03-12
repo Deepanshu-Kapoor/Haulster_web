@@ -13,6 +13,7 @@ import { SafetySnapshot } from "@/components/home/safety-snapshot"
 import { Testimonials } from "@/components/home/testimonials"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { ScrollTruck } from "@/components/scroll-truck"
+import { SafetyCertificationsHome } from "@/components/home/safety-certifications-preview"
 
 const FleetCoverage = dynamic(
   () => import("@/components/home/fleet-coverage").then((mod) => mod.FleetCoverage),
@@ -59,6 +60,7 @@ export default function HomePage() {
         <FleetCoverage />
         <ServicesOverview />
         <SafetySnapshot />
+        <SafetyCertificationsHome />
         <Testimonials />
         <CtaBanner />
       </main>
